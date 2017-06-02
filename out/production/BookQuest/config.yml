@@ -1,0 +1,17 @@
+# BookQuest v1.0
+# If you have bugs or idea do you want me update.
+# You can contact me at https://facebook.com/chun42.
+
+# Copy this default template
+# change template to your book name!
+# use hashtag (#) to separate line in that page.
+
+# in this case (default template) you can type the command
+# /bookquest open <player> template => to open it.
+
+# when you finish your just type
+# /bookquest reload => to reload the plugin!
+
+template:
+    - '&cLine1#&6Line2#&eLine3'
+    - '&cLine1#&6Line2#&eLine3##Page2'

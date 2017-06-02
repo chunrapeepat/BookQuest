@@ -3,7 +3,6 @@
     <output-path>$PROJECT_DIR$/../../minecraft_server/1.11.2/plugins</output-path>
     <root id="archive" name="BookQuest.jar">
       <element id="module-output" name="BookQuest" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/../libs/spigot-1.11.2.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

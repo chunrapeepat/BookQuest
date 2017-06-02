@@ -9,13 +9,15 @@ import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
+
 /**
  * Created by chunza2542 on 6/2/17.
  */
 public class BookQuest_v1_11_R1 implements BookQuest{
 
     @Override
-    public ItemStack createBook(String title, String author, String... pages) {
+    public ItemStack createBook(String title, String author, ArrayList<String> pages) {
         ItemStack is = new ItemStack(Material.WRITTEN_BOOK, 1);
         net.minecraft.server.v1_11_R1.ItemStack nmsis = CraftItemStack.asNMSCopy(is);
         NBTTagCompound bd = new NBTTagCompound();

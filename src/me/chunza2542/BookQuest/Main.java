@@ -1,9 +1,7 @@
 package me.chunza2542.BookQuest;
 
-import me.chunza2542.BookQuest.commands.BookCommand;
 import me.chunza2542.BookQuest.commands.BookQuestCommand;
 import me.chunza2542.BookQuest.versions.BookQuest;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.lang.reflect.InvocationTargetException;
@@ -22,8 +20,7 @@ public class Main extends JavaPlugin{
         helper.info("[BookQuest] This plugin created by Chun Rapeepat @chunza2542.");
         helper.info("[BookQuest] You are running on server version " + helper.getVersion());
 
-        if(helper.isVersionSupported("v1_8_R1"
-                                    ,"v1_8_R2"
+        if(helper.isVersionSupported("v1_8_R2"
                                     ,"v1_8_R3"
                                     ,"v1_9_R1"
                                     ,"v1_9_R2"
@@ -34,7 +31,6 @@ public class Main extends JavaPlugin{
             saveDefaultConfig();
 
             /* Register Some Command*/
-            getCommand("book").setExecutor(new BookCommand(this));
             getCommand("bookquest").setExecutor(new BookQuestCommand(this));
 
             /* BookQuest NMS */

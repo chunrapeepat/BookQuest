@@ -1,5 +1,6 @@
 package me.chunza2542.BookQuest;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.Pattern;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.server.v1_11_R1.*;
@@ -11,12 +12,21 @@ import org.bukkit.craftbukkit.v1_11_R1.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
  * Created by chunza2542 on 6/2/17.
  */
 public class BookQuestHelper {
+
+    public ArrayList<String> toBookData(ArrayList<String> olddata){
+        ArrayList<String> data = new ArrayList<String>();
+        for(String each : olddata){
+            data.add(translate(each).replaceAll("\\#", "\n"));
+        }
+        return data;
+    }
 
     public String translate(String msg){
         return ChatColor.translateAlternateColorCodes('&', msg);
