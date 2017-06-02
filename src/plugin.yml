@@ -1,0 +1,12 @@
+name: BookQuest
+version: 1.0
+author: [chunza2542]
+main: me.chunza2542.BookQuest.Main
+
+commands:
+    book:
+        usage: /<command>
+        description: Open the book for player.
+    bookquest:
+        usage: /<command>
+        description: This command only for OP!
