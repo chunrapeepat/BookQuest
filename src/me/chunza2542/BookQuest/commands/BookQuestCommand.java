@@ -6,6 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.Arrays;
 
@@ -28,7 +29,8 @@ public class BookQuestCommand implements CommandExecutor{
                 return true;
             }
         }
-        instance.getHelper().openBook(instance.getHelper().book("TILE","CHUN", "aasd", "asdasd"), (Player) sender);
+        ItemStack book = instance.getBook().createBook("EIEI","Chun","123","456");
+        instance.getBook().openBook((Player) sender, book);
         return true;
     }
 }
