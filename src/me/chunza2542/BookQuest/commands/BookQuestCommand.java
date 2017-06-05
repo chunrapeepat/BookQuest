@@ -36,6 +36,7 @@ public class BookQuestCommand implements CommandExecutor{
         if(args.length < 1){
             sender.sendMessage(ChatColor.YELLOW + "[BookQuest] Help BookQuest");
             sender.sendMessage(instance.getHelper().translate("&6/bookquest open <player> <bookname>: &fOpen book!"));
+            sender.sendMessage(instance.getHelper().translate("&6/bookquest openall <bookname>: &fOpen all players."));
             sender.sendMessage(instance.getHelper().translate("&6/bookquest reload: &fReload the config."));
             return true;
         }
@@ -54,11 +55,29 @@ public class BookQuestCommand implements CommandExecutor{
                 sender.sendMessage(ChatColor.DARK_RED + "Not found this book name in the config, please check!");
                 return true;
             }
-            ItemStack book = instance.getBook().createBook("BookQuest", "",
+            ItemStack book = instance.getBook().createBook("BookQuest", "Chun Rapeepat",
                     instance.getHelper().toBookData((ArrayList<String>) instance.getConfig().getStringList(args[2])));
-            instance.getBook().openBook((Player) sender, book);
+            instance.getBook().openBook(target, book);
             return true;
         }
+
+        if(args[0].equalsIgnoreCase("openall")){
+            if(args.length < 2){
+                sender.sendMessage(ChatColor.RED + "[BookQuest] usage: /bookquest openall <bookname>");
+                return true;
+            }
+            if(!instance.getConfig().contains(args[1])){
+                sender.sendMessage(ChatColor.DARK_RED + "Not found this book name in the config, please check!");
+                return true;
+            }
+            ItemStack book = instance.getBook().createBook("BookQuest", "Chun Rapeepat",
+                    instance.getHelper().toBookData((ArrayList<String>) instance.getConfig().getStringList(args[1])));
+            for(Player p : Bukkit.getOnlinePlayers()){
+                instance.getBook().openBook(p, book);
+            }
+            return true;
+        }
+
 
         if(args[0].equalsIgnoreCase("reload")){
             sender.sendMessage(ChatColor.GREEN + "[BookQuest] Reloaded BookQuest Config!");
